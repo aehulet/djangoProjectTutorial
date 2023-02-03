@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <title>Question Detail</title>
 </head>
+<h1>{{ question.question_text }}</h1>
 <body>
 <p>Some details</p><br>
-{{ question }}
+<ul>
+    {% for choice in question.choice_set.all %}
+        <li>{{ choice.choice_text }}</li>
+    {% endfor %}
+</ul>
 </body>
 </html>

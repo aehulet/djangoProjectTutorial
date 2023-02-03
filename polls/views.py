@@ -15,13 +15,11 @@ def index(request):
 
 
 def detail(request, question_id):
-    this_url = '/polls/{}/detail.html'
-    this_url.format(question_id)
     try:
         question = Question.objects.get(pk=question_id)
     except Question.DoesNotExist:
         raise Http404('Aint no damn question here')
-    return render(request, this_url, {'question': question})
+    return render(request, 'polls/detail.html', {'question': question})
 
 
 def results(request, question_id):
